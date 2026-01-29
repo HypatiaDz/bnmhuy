@@ -9,9 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* =========================================
-           HỆ THỐNG BIẾN (VARIABLES)
-           ========================================= */
+        /* GIỮ NGUYÊN HỆ THỐNG BIẾN CỦA BẠN */
         :root {
             --primary: #5865f2;
             --primary-dark: #4752c4;
@@ -33,289 +31,198 @@
         }
 
         [data-theme="light"] {
-            --darker: #f0f2f5;
-            --light: #1a1a1a;
-            --card-bg: #ffffff;
-            --card-border: rgba(0, 0, 0, 0.08);
-            --text-color: #1a1a1a;
-            --text-secondary: #555555;
-            --glass: rgba(0, 0, 0, 0.06);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --darker: #f0f2f5; --light: #1a1a1a; --card-bg: #ffffff; --card-border: rgba(0, 0, 0, 0.08); --text-color: #1a1a1a; --text-secondary: #555555;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--darker); color: var(--text-color); font-family: 'Inter', sans-serif; overflow-x: hidden; min-height: 100vh; transition: background-color 0.5s ease; }
 
-        body {
-            background-color: var(--darker);
-            color: var(--text-color);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            min-height: 100vh;
-            transition: background-color 0.5s ease;
-        }
-
-        /* =========================================
-           HIỆU ỨNG NỀN (BACKGROUNDS)
-           ========================================= */
-        #galaxy {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -2; opacity: 0.4; pointer-events: none;
-        }
-
-        .background-decor {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; overflow: hidden;
-        }
-
-        .gradient-sphere {
-            position: absolute; width: 500px; height: 500px;
-            border-radius: 50%; filter: blur(120px);
-            animation: moveSphere 25s infinite alternate ease-in-out;
-            opacity: 0.4;
-        }
-
-        .sphere-one { background: var(--primary); top: -15%; left: -10%; }
-        .sphere-two { background: var(--accent); bottom: -15%; right: -5%; animation-delay: -7s; }
-
-        @keyframes moveSphere {
-            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
-            100% { transform: translate(150px, 80px) rotate(90deg) scale(1.3); }
-        }
-
-        /* =========================================
-           HEADER & NAVIGATION
-           ========================================= */
-        .theme-toggle {
-            position: fixed; top: 30px; right: 30px; z-index: 1000;
-            background: var(--glass); border: 1px solid var(--card-border);
-            border-radius: 50px; height: 50px; display: flex; align-items: center;
-            padding: 0 25px; gap: 12px; cursor: pointer; transition: var(--transition);
-            backdrop-filter: blur(var(--blur)); box-shadow: var(--shadow); color: var(--text-color);
-        }
-        .theme-toggle:hover { transform: scale(1.05); background: var(--glass-dark); }
-
-        .header { text-align: center; padding: 100px 20px 60px; }
-        .header h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2.5rem, 10vw, 4.5rem);
-            background: linear-gradient(135deg, #00ff88 0%, #0080ff 50%, #00ff88 100%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: flowText 5s linear infinite;
-            margin-bottom: 20px;
-            letter-spacing: 5px;
-        }
-        @keyframes flowText { to { background-position: 200% center; } }
+        #toast-container { position: fixed; bottom: 20px; right: 20px; z-index: 10001; }
+        .toast { background: var(--primary); color: white; padding: 12px 20px; border-radius: 10px; margin-top: 10px; font-weight: 600; box-shadow: var(--shadow); animation: slideIn 0.3s ease-out; }
+        @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
         
-        .header p { color: var(--text-secondary); font-size: 1.2rem; font-weight: 300; }
+        #galaxy { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; opacity: 0.4; pointer-events: none; }
+        .background-decor { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
+        .gradient-sphere { position: absolute; width: 500px; height: 500px; border-radius: 50%; filter: blur(120px); animation: moveSphere 25s infinite alternate ease-in-out; opacity: 0.4; }
+        .sphere-one { background: var(--primary); top: -15%; left: -10%; }
+        .sphere-two { background: var(--accent); bottom: -15%; right: -5%; }
 
-        /* =========================================
-           THIẾT KẾ CARD & GRID
-           ========================================= */
         .container { max-width: 1300px; margin: 0 auto; padding: 0 30px; }
+        .header { text-align: center; padding: 100px 20px 60px; }
+        .header h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 10vw, 4rem); background: linear-gradient(135deg, #00ff88 0%, #0080ff 50%, #00ff88 100%); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: flowText 5s linear infinite; margin-bottom: 20px; letter-spacing: 5px; }
+        @keyframes flowText { to { background-position: 200% center; } }
 
-        .section-header {
-            display: flex; align-items: center; margin: 60px 0 35px;
-            padding-bottom: 20px; border-bottom: 2px solid var(--glass);
-            position: relative;
-        }
-        .section-header::after {
-            content: ""; position: absolute; bottom: -2px; left: 0;
-            width: 100px; height: 2px; background: var(--primary);
-        }
-        .section-header i { font-size: 1.8rem; color: var(--primary); filter: drop-shadow(0 0 10px var(--primary)); }
-        .section-header h2 { font-size: 1.8rem; font-weight: 700; margin-left: 20px; letter-spacing: 2px; }
+        .section-header { display: flex; align-items: center; margin: 40px 0 25px; padding-bottom: 20px; border-bottom: 2px solid var(--glass); position: relative; }
+        .section-header::after { content: ""; position: absolute; bottom: -2px; left: 0; width: 100px; height: 2px; background: var(--primary); }
+        .section-header i { font-size: 1.5rem; color: var(--primary); margin-right: 15px; }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 30px;
-        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
 
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 24px; padding: 30px;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            position: relative; overflow: hidden;
-        }
-        .card:hover { transform: translateY(-12px); border-color: var(--primary); box-shadow: var(--glow); }
+        .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; padding: 25px; transition: var(--transition); box-shadow: var(--shadow); position: relative; overflow: hidden; }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: var(--glow); }
+        .card-top { display: flex; align-items: center; margin-bottom: 20px; gap: 15px; }
+        .card-icon { width: 55px; height: 55px; background: var(--glass-dark); border-radius: 15px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--card-border); overflow: hidden; }
+        .card-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .card-title { font-size: 1.25rem; font-weight: 700; color: var(--light); }
+        
+        .status-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+        .mini-status { display: inline-flex; align-items: center; padding: 5px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 800; width: fit-content; text-transform: uppercase; }
+        .status-online { background: rgba(0, 255, 136, 0.15); color: var(--status-online); }
+        .status-offline { background: rgba(255, 59, 48, 0.15); color: var(--status-offline); }
 
-        .card-top { display: flex; align-items: center; margin-bottom: 25px; }
-        .card-icon { 
-            width: 65px; height: 65px; background: var(--glass-dark); 
-            border-radius: 18px; display: flex; align-items: center; 
-            justify-content: center; margin-right: 20px; border: 1px solid var(--card-border);
-        }
-        .card-icon img { width: 40px; height: 40px; border-radius: 8px; }
-        .card-title { font-size: 1.4rem; font-weight: 700; color: var(--light); }
+        .button-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .btn-full { grid-template-columns: 1fr; }
 
-        .status-badge {
-            display: inline-flex; align-items: center; 
-            padding: 8px 16px; border-radius: 12px; 
-            font-size: 0.8rem; font-weight: 800; 
-            margin-bottom: 25px; text-transform: uppercase;
-        }
-        .status-online { background: rgba(0, 255, 136, 0.1); color: var(--status-online); border: 1px solid rgba(0, 255, 136, 0.2); }
-        .status-online::before { content: ""; width: 8px; height: 8px; background: var(--status-online); border-radius: 50%; margin-right: 10px; box-shadow: 0 0 10px var(--status-online); }
-        .status-offline { background: rgba(255, 59, 48, 0.1); color: var(--status-offline); }
-        .status-offline::before { content: ""; width: 8px; height: 8px; background: var(--status-offline); border-radius: 50%; margin-right: 10px; }
+        .download-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; background: var(--primary); color: white; text-decoration: none; padding: 12px; border-radius: 12px; font-weight: 600; font-size: 0.9rem; transition: var(--transition); }
+        .btn-vng { background: transparent; border: 1px solid var(--card-border); }
+        .download-btn:hover { background: var(--primary-dark); transform: scale(1.02); }
 
-        .download-btn {
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            width: 100%; background: var(--primary); color: white;
-            text-decoration: none; padding: 16px; border-radius: 15px;
-            font-weight: 600; font-size: 1.1rem; transition: var(--transition);
-        }
-        .download-btn:hover { background: var(--primary-dark); letter-spacing: 1px; }
-
-        /* =========================================
-           FOOTER - CHỈ CÒN RAINBOW TEXT
-           ========================================= */
-        .footer { text-align: center; margin-top: 100px; padding: 50px; border-top: 1px solid var(--card-border); }
-        .footer-content { display: inline-flex; align-items: center; gap: 12px; font-size: 1.3rem; }
-
-        .rainbow-text {
-            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff, #ff0000);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: rainbow-anim 4s linear infinite;
-            font-weight: 800;
-        }
+        .theme-toggle { position: fixed; top: 30px; right: 30px; z-index: 1000; background: var(--glass); border: 1px solid var(--card-border); border-radius: 50px; height: 50px; display: flex; align-items: center; padding: 0 25px; gap: 12px; cursor: pointer; transition: var(--transition); backdrop-filter: blur(var(--blur)); box-shadow: var(--shadow); color: var(--text-color); }
+        .footer { text-align: center; margin-top: 80px; padding: 40px; border-top: 1px solid var(--card-border); }
+        .rainbow-text { background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00, #0000ff, #ff0000); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: rainbow-anim 4s linear infinite; font-weight: 800; }
         @keyframes rainbow-anim { to { background-position: 200% center; } }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: var(--darker); }
-        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
     </style>
 </head>
 <body>
 
-    <div class="theme-toggle" onclick="toggleTheme()">
-        <i class="fas fa-sun" id="theme-icon"></i>
-        <span>GIAO DIỆN</span>
-    </div>
-
-    <div class="background-decor">
-        <div class="gradient-sphere sphere-one"></div>
-        <div class="gradient-sphere sphere-two"></div>
-    </div>
+    <div id="toast-container"></div>
+    <div class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-sun" id="theme-icon"></i><span>GIAO DIỆN</span></div>
+    <div class="background-decor"><div class="gradient-sphere sphere-one"></div><div class="gradient-sphere sphere-two"></div></div>
     <canvas id="galaxy"></canvas>
 
     <header class="header">
         <h1>NULLIX HUB</h1>
-        <p>Hệ thống Executor đa nền tảng tối ưu nhất cho người dùng</p>
+        <p>Hệ thống Executor Android & PC Đầy Đủ Nhất</p>
     </header>
 
     <div class="container">
-        <div class="section-header"><i class="fab fa-android"></i><h2>Android VNG</h2></div>
-        <div class="grid">
-            <div class="card">
-                <div class="card-top">
-                    <div class="card-icon"><img src="https://executors-lion-hub.netlify.app/deltax.png" alt="Delta"></div>
-                    <div class="card-title">Delta-X VNG</div>
-                </div>
-                <div class="status-badge status-online" id="status-adr-vng">Online</div>
-                <a href="#" class="download-btn" id="btn-adr-vng"><i class="fas fa-cloud-download-alt"></i> Tải Về VNG</a>
-            </div>
-        </div>
+        <div class="section-header"><i class="fab fa-android"></i><h2>Android Executors</h2></div>
+        <div class="grid" id="android-grid"></div>
 
-        <div class="section-header"><i class="fas fa-globe"></i><h2>Android Quốc Tế</h2></div>
-        <div class="grid">
-            <div class="card">
-                <div class="card-top">
-                    <div class="card-icon"><img src="https://executors-lion-hub.netlify.app/codex.png" alt="Codex"></div>
-                    <div class="card-title">Codex Global</div>
-                </div>
-                <div class="status-badge status-online" id="status-adr-qt">Online</div>
-                <a href="#" class="download-btn" id="btn-adr-qt"><i class="fas fa-globe"></i> Tải Về Global</a>
-            </div>
-        </div>
+        <div class="section-header"><i class="fas fa-desktop"></i><h2>PC Executors</h2></div>
+        <div class="grid" id="pc-grid"></div>
 
-        <div class="section-header"><i class="fab fa-apple"></i><h2>iOS VNG</h2></div>
-        <div class="grid">
-            <div class="card">
-                <div class="card-top">
-                    <div class="card-icon"><img src="https://executors-lion-hub.netlify.app/K.svg" alt="Krnl"></div>
-                    <div class="card-title">Krnl iOS VNG</div>
-                </div>
-                <div class="status-badge status-online" id="status-ios-vng">Online</div>
-                <a href="#" class="download-btn" id="btn-ios-vng"><i class="fas fa-mobile-alt"></i> Download iOS</a>
-            </div>
-        </div>
-
-        <footer class="footer">
-            <div class="footer-content">
-                Designed by <span class="rainbow-text">Nullix ( BNMhuy )</span>
-            </div>
-        </footer>
+        <footer class="footer"><div class="footer-content">Designed by <span class="rainbow-text">Nullix ( BNMhuy )</span></div></footer>
     </div>
 
     <script>
+        // DANH SÁCH ANDROID - CẬP NHẬT ẢNH & DELTA VNG
+        const androidExecutors = [
+            { id: 'arceus', name: 'Arceus X NEO', ver: '2.703', icon: 'https://sf-static.upanhlaylink.com/img/image_2025091341b69c6afa4e02709bf1ba299bdbafbd.jpg', types: ['qt', 'vng'] },
+            { id: 'codex', name: 'Codex', ver: '2.703', icon: 'https://codex.lol/static/icons/icon.svg', types: ['qt', 'vng'] },
+            { id: 'delta', name: 'Delta', ver: '2.704', icon: 'https://sf-static.upanhlaylink.com/img/image_2025091320b780aa4e49c945bdddf569984a41b6.jpg', types: ['qt', 'vng'] },
+            { id: 'ronix', name: 'Ronix', ver: '2.704', icon: 'https://wearedevs.net/images/ronix/ronix-animated.gif', types: ['qt', 'vng'] },
+            { id: 'trigon', name: 'Trigon', ver: '2.704', icon: 'https://trigonevo.com/wp-content/uploads/2021/09/cropped-New-Trigon-with-Shadow-300x300.png.webp', types: ['qt'] },
+            { id: 'vegax', name: 'Vega X', ver: '2.703', icon: 'https://vegax.gg/assets/img/V_logo_white.png', types: ['qt'] },
+            { id: 'fluxusz', name: 'FluxusZ', ver: '2.703', icon: 'https://files.catbox.moe/qt87ws.webp', types: ['qt', 'vng'] },
+            { id: 'cryptic', name: 'Cryptic', ver: '2.704', icon: 'https://getcryptic.net/logo.png', types: ['qt', 'vng'] }
+        ];
+
+        // DANH SÁCH PC - CẬP NHẬT ẢNH & Tên chính xác cho links.json
+        const pcExecutors = [
+            { id: 'xeno', name: 'Xeno PC', icon: 'https://www.xeno.onl/images/xeno.png' },
+            { id: 'bunni', name: 'Bunni Xeno', icon: 'https://sf-static.upanhlaylink.com/img/image_20251107ec93fb41bcff1cb31ece2f29c4c3d623.jpg' },
+            { id: 'ronix_pc', name: 'Ronix PC', icon: 'https://wearedevs.net/images/ronix/ronix-animated.gif' },
+            { id: 'atlantis', name: 'Atlantis PC', icon: 'https://cdn-icons-png.flaticon.com/512/4241/4241630.png' },
+            { id: 'velocity_pc', name: 'Velocity PC', icon: 'https://files.catbox.moe/tj6brv.png' }
+        ];
+
+        // RENDER HÀM CHUNG
+        function renderExecutors(list, containerId, isPc = false) {
+            const container = document.getElementById(containerId);
+            list.forEach(ex => {
+                let statusHtml = isPc 
+                    ? `<div id="status-${ex.id}" class="mini-status status-offline">PC: Checking...</div>`
+                    : ex.types.map(t => `<div id="status-${ex.id}-${t}" class="mini-status status-offline">${t === 'qt' ? 'Global' : 'VNG'}: Checking...</div>`).join('');
+                
+                let btnHtml = isPc
+                    ? `<div class="button-group btn-full"><a href="#" class="download-btn" id="btn-${ex.id}"><i class="fas fa-desktop"></i> Download</a></div>`
+                    : `<div class="button-group ${ex.types.length === 1 ? 'btn-full' : ''}">` + 
+                      ex.types.map(t => `<a href="#" class="download-btn ${t === 'vng' ? 'btn-vng' : ''}" id="btn-${ex.id}-${t}"><i class="fas fa-download"></i> ${t.toUpperCase()}</a>`).join('') + 
+                      `</div>`;
+
+                container.innerHTML += `
+                    <div class="card">
+                        <div class="card-top">
+                            <div class="card-icon"><img src="${ex.icon}" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3039/3039403.png'"></div>
+                            <div><div class="card-title">${ex.name}</div>${ex.ver ? `<p style="color: var(--text-secondary); font-size: 0.75rem;">Version: ${ex.ver}</p>` : ''}</div>
+                        </div>
+                        <div class="status-group">${statusHtml}</div>
+                        ${btnHtml}
+                    </div>`;
+            });
+        }
+
+        renderExecutors(androidExecutors, 'android-grid');
+        renderExecutors(pcExecutors, 'pc-grid', true);
+
+        // UI LOGIC
         function toggleTheme() {
-            const body = document.body;
-            const icon = document.getElementById('theme-icon');
-            if (body.getAttribute('data-theme') === 'light') {
-                body.removeAttribute('data-theme');
-                icon.className = 'fas fa-sun';
-            } else {
-                body.setAttribute('data-theme', 'light');
-                icon.className = 'fas fa-moon';
-            }
+            const body = document.body; const icon = document.getElementById('theme-icon');
+            if (body.getAttribute('data-theme') === 'light') { body.removeAttribute('data-theme'); icon.className = 'fas fa-sun'; }
+            else { body.setAttribute('data-theme', 'light'); icon.className = 'fas fa-moon'; }
         }
 
-        const canvas = document.getElementById('galaxy');
-        const ctx = canvas.getContext('2d');
+        const canvas = document.getElementById('galaxy'); const ctx = canvas.getContext('2d');
         let stars = [];
-
         function initStars() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            stars = [];
-            for(let i=0; i<150; i++) {
-                stars.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    size: Math.random() * 2,
-                    speed: Math.random() * 0.5 + 0.1
-                });
-            }
+            canvas.width = window.innerWidth; canvas.height = window.innerHeight; stars = [];
+            for(let i=0; i<100; i++) { stars.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, size: Math.random() * 2, speed: Math.random() * 0.5 }); }
         }
-
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = document.body.hasAttribute('data-theme') ? "#333" : "#fff";
-            stars.forEach(star => {
-                ctx.beginPath();
-                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-                ctx.fill();
-                star.y += star.speed;
-                if(star.y > canvas.height) star.y = 0;
-            });
+            stars.forEach(star => { ctx.beginPath(); ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2); ctx.fill(); star.y += star.speed; if(star.y > canvas.height) star.y = 0; });
             requestAnimationFrame(animate);
         }
+        window.addEventListener('resize', initStars); initStars(); animate();
 
-        window.addEventListener('resize', initStars);
-        initStars();
-        animate();
+        // TOAST SYSTEM - ĐÃ FIX LỖI DẤU NGOẶC ) DÒNG 234
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerText = message;
+            container.appendChild(toast);
+            setTimeout(() => { 
+                toast.style.opacity = '0'; 
+                toast.style.transition = '0.5s'; 
+                setTimeout(() => { toast.remove(); }, 500); 
+            }, 3000);
+        }
 
+        // DỮ LIỆU TỪ GitHub links.json - ĐÃ FIX URL ĐỂ ÉP TẢI BẢN MỚI
         async function loadLinks() {
             try {
-                const response = await fetch('links.json?t=' + Date.now());
+                const response = await fetch('https://raw.githubusercontent.com/HypatiaDz/bnmhuy/main/links.json?t=' + Date.now());
                 const data = await response.json();
-                if(data.adr_vng) document.getElementById('btn-adr-vng').href = data.adr_vng;
-                if(data.adr_qt) document.getElementById('btn-adr-qt').href = data.adr_qt;
-                if(data.ios_vng) document.getElementById('btn-ios-vng').href = data.ios_vng;
-            } catch (e) {
-                console.log("Đang đồng bộ dữ liệu...");
-            }
+
+                const update = (id, link, prefix) => {
+                    const btn = document.getElementById(`btn-${id}`);
+                    const st = document.getElementById(`status-${id}`);
+                    if (!btn || !st) return;
+
+                    // Nếu link bắt đầu bằng http mới tính là Online
+                    if (link && link.startsWith('http')) {
+                        btn.href = link;
+                        btn.onclick = () => showToast(`Đang mở link tải...`);
+                        st.className = "mini-status status-online";
+                        st.innerText = `${prefix}: Online`;
+                    } else {
+                        btn.href = "javascript:void(0)";
+                        btn.onclick = () => showToast(`Bản này đang bảo trì!`);
+                        st.className = "mini-status status-offline";
+                        st.innerText = `${prefix}: Bảo trì`;
+                    }
+                };
+
+                // Cập nhật trạng thái từng Executor
+                androidExecutors.forEach(ex => ex.types.forEach(t => update(`${ex.id}-${t}`, data[`${ex.id}_${t}`], t.toUpperCase())));
+                pcExecutors.forEach(ex => update(ex.id, data[ex.id], 'PC'));
+
+            } catch (e) { console.log("Lỗi đồng bộ dữ liệu: ", e); }
         }
+
         loadLinks();
         setInterval(loadLinks, 30000);
     </script>

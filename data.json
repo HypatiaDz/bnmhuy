@@ -1,1 +1,11 @@
-
+[
+  {
+    "id": 1770698846188,
+    "game": "Blox Fruit",
+    "title": "NX-NAZUX Hub",
+    "desc": "giao diện banana pre",
+    "code": "repeat wait() until game:IsLoaded() and game.Players.LocalPlayer \nloadstring(game:HttpGet(\"https://raw.githubusercontent.com/NguyenAnhKhoaVN/Real_AnhKhoa_2279/refs/heads/main/Main-BloxFruitsNX.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  }
+]

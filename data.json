@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770701306820,
+    "game": "Blox Fruit",
+    "title": "Tsuo Hub",
+    "desc": "",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Tsuo7/TsuoHub/main/Tsuoscripts\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770701279155,
     "game": "Blox Fruit",
     "title": "Astral Hub",

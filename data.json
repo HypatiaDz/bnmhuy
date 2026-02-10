@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770700810390,
+    "game": "Blox Fruit",
+    "title": "Zyn Hub ( GetKey )",
+    "desc": "",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/jaiasof/Zyn-Hub/refs/heads/main/Zyn%20Loader\", true))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770700736289,
     "game": "Blox Fruit",
     "title": "Rise-evo ( Support Mobi not support pc )",

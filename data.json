@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770701781984,
+    "game": "Blox Fruti",
+    "title": "SynTrax Hub",
+    "desc": "nhặt Fruit",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/DevHub-roblox/script-SYNTRAX-Hub/refs/heads/main/BloxFruit/FindFruit.txt\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770701498669,
     "game": "Blox Fruit",
     "title": "Gravity Hub",

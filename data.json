@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770700555939,
+    "game": "Blox Fruit",
+    "title": "Khá Bảnh Hub",
+    "desc": "",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/longhihilonghihi-hub/KhaBanhHubV2/refs/heads/main/obf_m92m5V2G0rk2XM6IPP1L1O701401kdJLV4V5nEyYclj029p00N3SyRWn7S1ax4Uz.lua.txt\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770699945508,
     "game": "Blox Fruit",
     "title": "Meo X Hub ",

@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770700638054,
+    "game": "Blox Fruit",
+    "title": "Dragon Hub",
+    "desc": "",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/dragonhubdev/dragonwitheveryone/refs/heads/main/Main-BF.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770700618368,
     "game": "Blox Fruit",
     "title": "Trẩu Hub ( Only Up V4)",

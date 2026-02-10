@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770700736289,
+    "game": "Blox Fruit",
+    "title": "Rise-evo ( Support Mobi not support pc )",
+    "desc": "",
+    "code": "if not game:IsLoaded() then game.Loaded:Wait() end\nloadstring(game:HttpGet(\"https://rise-evo.xyz/apiv3/main.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770700689170,
     "game": "Blox Fruit",
     "title": "Abacaxi Hub",

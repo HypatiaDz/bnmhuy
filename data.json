@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770701149573,
+    "game": "Blox Fruit",
+    "title": "Teddy Hub",
+    "desc": "",
+    "code": "repeat task.wait() until game:IsLoaded() and game:GetService(\"Players\") and game.Players.LocalPlayer and game.Players.LocalPlayer:FindFirstChild(\"PlayerGui\")\nloadstring(game:HttpGet(\"https://raw.githubusercontent.com/Teddyseetink/Haidepzai/refs/heads/main/TeddyHub.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770701124856,
     "game": "Blox Fruit",
     "title": "Void Hub",

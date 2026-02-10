@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770701279155,
+    "game": "Blox Fruit",
+    "title": "Astral Hub",
+    "desc": "",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Overgustx2/Main/refs/heads/main/BloxFruits_25.html\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770701187565,
     "game": "Blox Fruit",
     "title": "Redz Hub ( beta )",

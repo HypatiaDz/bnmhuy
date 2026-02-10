@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770701498669,
+    "game": "Blox Fruit",
+    "title": "Gravity Hub",
+    "desc": "",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Dev-GravityHub/BloxFruit/refs/heads/main/Main.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770701473052,
     "game": "Blox Fruit",
     "title": "QuanTum Hub",

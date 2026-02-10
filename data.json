@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770700666351,
+    "game": "Blox Fruit",
+    "title": "Leaf Hub ( Get Key )",
+    "desc": "",
+    "code": "repeat task.wait() until game:IsLoaded() and game.Players.LocalPlayer\nloadstring(game:HttpGet(\"https://github.com/LeafHubAcademy/LeafHub/raw/refs/heads/main/Leaf.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770700638054,
     "game": "Blox Fruit",
     "title": "Dragon Hub",

@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770700870783,
+    "game": "Blox Fruit",
+    "title": "DatThg Hub",
+    "desc": "",
+    "code": "getgenv().Team = \"Marines\"\nloadstring(game:HttpGet(\"https://github.com/LuaCrack/DatThg/raw/refs/heads/main/DatThgVnV4\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770700842698,
     "game": "Blox Fruit",
     "title": "Jade Hub (Key: KUPAL-BRAINROT)",

@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770701187565,
+    "game": "Blox Fruit",
+    "title": "Redz Hub ( beta )",
+    "desc": "",
+    "code": "local Settings = {\nJoinTeam = \"Pirates\"; -- Pirates/Marines\nTranslator = true; -- true/false\n}\n\ngetgenv().BETA_VERSION = true\nloadstring(game:HttpGet(\"https://raw.githubusercontent.com/tlredz/Scripts/refs/heads/main/main.luau\"))(Settings)",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770701149573,
     "game": "Blox Fruit",
     "title": "Teddy Hub",

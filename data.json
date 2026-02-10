@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770699945508,
+    "game": "Blox Fruit",
+    "title": "Meo X Hub ",
+    "desc": "",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/VanHoangIOS/MeoXHub/refs/heads/main/Main.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770699921471,
     "game": "Blox Fruit",
     "title": "RedZ Hub",

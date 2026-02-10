@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770700618368,
+    "game": "Blox Fruit",
+    "title": "Trẩu Hub ( Only Up V4)",
+    "desc": "",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/traurobloxdeptrai/traukhoaito/refs/heads/main/uptocv4fix.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770700574789,
     "game": "Blox Fruit",
     "title": "3Congio Hub",

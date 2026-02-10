@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770701030603,
+    "game": "Blox Fruit",
+    "title": "hermanos dev",
+    "desc": "script Aim Pvp",
+    "code": "local script_mode = \"PVP\" -- PVP, FARM\nlocal loader = loadstring\nlocal url = \"https://raw.githubusercontent.com/hermanos-dev/hermanos-hub/refs/heads/main/Loader.lua\"\nlocal response = game:HttpGet(url)\nloader(response)()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770700944014,
     "game": "Blox Fruit",
     "title": "script auto săn bouty",

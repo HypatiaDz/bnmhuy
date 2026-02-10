@@ -89,11 +89,10 @@
         </div>
     </div>
 
-    <div class="tabs" id="tabs">
-        </div>
-
+    <div class="tabs" id="tabs"></div>
     <div class="grid" id="grid">
-        </div>
+        <p style="text-align:center; grid-column:1/-1; color:#888;">Đang kết nối đến server script...</p>
+    </div>
 
     <div class="support">
         <h2><i class="fas fa-headset"></i> Cần hỗ trợ script?</h2>
@@ -117,54 +116,11 @@
     </div>
 
     <script>
-        // --- 1. DỮ LIỆU SCRIPT ---
-        const scriptsData = [
-            {
-                id: 1,
-                game: "Blox Fruits",
-                title: "Hoho Hub V3",
-                desc: "Script Farm ngon nhất hiện tại. Full Auto Farm Level, Raid, Sea Events, Kaitun.",
-                code: "loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()",
-                tag: "HOT",
-                tagClass: "hot"
-            },
-            {
-                id: 2,
-                game: "Blox Fruits",
-                title: "W-Azure Mobile",
-                desc: "Siêu nhẹ, tối ưu cho điện thoại yếu. Auto Farm Chest, Teleport mượt.",
-                code: "loadstring(game:HttpGet(\"https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua\"))()",
-                tag: "VIP",
-                tagClass: "vip"
-            },
-            {
-                id: 3,
-                game: "Bee Swarm",
-                title: "Kocmoc Hub",
-                desc: "Auto Dig, Auto Quest, Auto Kill Vicious Bee. Cày mật cực nhanh.",
-                code: "loadstring(game:HttpGet('https://raw.githubusercontent.com/REDzHUB/BeeSwarmSimulator/main/Source'))()",
-                tag: "NEW",
-                tagClass: "new"
-            },
-            {
-                id: 4,
-                game: "Pet Sim 99",
-                title: "Redz Hub Multi-Tool",
-                desc: "Auto Farm Gems, Auto Rank, Auto Hatch, Sniper pet giá rẻ.",
-                code: "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/REDzHUB/PetSimulator99/main/redz9999.lua\"))()",
-                tag: "UPDATED",
-                tagClass: "new"
-            },
-            {
-                id: 5,
-                game: "Blade Ball",
-                title: "Bedol Hub Auto Parry",
-                desc: "Auto Parry chuẩn 100%, Spam Block, ESP Ball. Leo rank cực dễ.",
-                code: "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/3345-c-a-t-s-u-s/BedolHub/main/BedolHub.lua\"))()",
-                tag: "PVP",
-                tagClass: "hot"
-            }
-        ];
+        // --- 1. CẤU HÌNH KẾT NỐI ADMIN ---
+        // Đây là link đến file data.json trên GitHub của bạn
+        const DATA_URL = 'https://raw.githubusercontent.com/HypatiaDz/bnmhuy/main/data.json';
+        
+        let scriptsData = []; // Mảng chứa dữ liệu tải về
 
         // --- 2. CÁC BIẾN TOÀN CỤC ---
         const grid = document.getElementById('grid');
@@ -176,17 +132,36 @@
         const toast = document.getElementById('toast');
         let currentFilter = 'All';
 
-        // --- 3. KHỞI TẠO ---
-        function init() {
-            renderTabs();
-            renderScripts(scriptsData);
+        // --- 3. KHỞI TẠO (ĐÃ NÂNG CẤP ASYNC) ---
+        async function init() {
+            try {
+                // Tải dữ liệu từ GitHub (Thêm timestamp để tránh cache cũ)
+                const response = await fetch(DATA_URL + '?t=' + Date.now());
+                if (!response.ok) throw new Error("Lỗi kết nối GitHub");
+                
+                scriptsData = await response.json();
+                
+                // Sau khi có dữ liệu mới vẽ giao diện
+                renderTabs();
+                renderScripts(scriptsData);
+            } catch (error) {
+                console.error(error);
+                grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:50px; color:#ff4757;">
+                    <i class="fas fa-exclamation-triangle" style="font-size:3rem; margin-bottom:15px;"></i><br>
+                    Chưa có dữ liệu hoặc lỗi kết nối!<br>
+                    (Hãy đảm bảo bạn đã dùng Admin Panel để đăng ít nhất 1 script)
+                </div>`;
+            }
+
             initGalaxy();
             animateStars();
         }
 
         // --- 4. CÁC HÀM XỬ LÝ GIAO DIỆN ---
         function renderTabs() {
+            // Lọc ra danh sách tên game duy nhất
             const games = ['All', ...new Set(scriptsData.map(item => item.game))];
+            
             tabsContainer.innerHTML = games.map(game => `
                 <button class="tab-btn ${game === 'All' ? 'active' : ''}" 
                         onclick="filterByGame('${game}')">
@@ -211,7 +186,7 @@
                 card.innerHTML = `
                     <div class="card-meta">
                         <span style="color:var(--text);"><i class="fas fa-gamepad"></i> ${item.game}</span>
-                        ${item.tag ? `<span class="tag ${item.tagClass}">${item.tag}</span>` : ''}
+                        ${item.tag ? `<span class="tag ${item.tagClass || 'hot'}">${item.tag}</span>` : ''}
                     </div>
                     <h3>${item.title}</h3>
                     <p style="color:#aaa; font-size:0.95rem; margin-bottom:20px; flex-grow:1; line-height:1.5;">${item.desc}</p>
@@ -237,7 +212,6 @@
                 }
             });
 
-            // Lọc dữ liệu
             filterData();
         }
 

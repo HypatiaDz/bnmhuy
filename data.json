@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770699921471,
+    "game": "Blox Fruit",
+    "title": "RedZ Hub",
+    "desc": "Tiếng Việt + Anh",
+    "code": "loadstring(game:HttpGet(\"https://luacrack.site/raw.php/InfinityScript/raw/Redz999Fake/RedzHubFake.luau\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770699817726,
     "game": "Blox Fruit",
     "title": "Trẩu Hub V9",

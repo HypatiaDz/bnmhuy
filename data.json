@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770700574789,
+    "game": "Blox Fruit",
+    "title": "3Congio Hub",
+    "desc": "",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/LuaAnarchist/3CONGIO-HUB/refs/heads/main/Main.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770700555939,
     "game": "Blox Fruit",
     "title": "Khá Bảnh Hub",

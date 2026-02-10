@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770702054863,
+    "game": "Blox Fruit",
+    "title": "Nana Hub",
+    "desc": "",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/NaNacuti/nanabeo/refs/heads/main/NaNaTVHub.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770701973803,
     "game": "Blox Fruit",
     "title": "Redz xanh Hub",

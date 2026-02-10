@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770701473052,
+    "game": "Blox Fruit",
+    "title": "QuanTum Hub",
+    "desc": "",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/flazhy/QuantumOnyx/refs/heads/main/QuantumOnyx.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770701347247,
     "game": "Blox Fruit",
     "title": "Hiru Hub",

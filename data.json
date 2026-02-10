@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770701124856,
+    "game": "Blox Fruit",
+    "title": "Void Hub",
+    "desc": "script nhặt Fruit",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/VoidDeveloper67/VoidHub/refs/heads/main/FruitFarmer\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770701030603,
     "game": "Blox Fruit",
     "title": "hermanos dev",

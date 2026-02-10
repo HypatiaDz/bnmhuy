@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770701347247,
+    "game": "Blox Fruit",
+    "title": "Hiru Hub",
+    "desc": "",
+    "code": "repeat wait() until game:IsLoaded() and game.Players.LocalPlayer\ngetgenv().Settings = {\nJoinTeam = true,\nTeam = \"Marines\"-- Pirates or Marines\n}\nloadstring(game:HttpGet(\"https://raw.githubusercontent.com/KiddoHiru/BloxFruits/main/Source.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770701325936,
     "game": "Blox Fruit",
     "title": "Hoho Hub",

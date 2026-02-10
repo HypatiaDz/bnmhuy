@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770701973803,
+    "game": "Blox Fruti",
+    "title": "Redz xanh Hub",
+    "desc": "",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/luraobermeyer-jpg/redzhub/refs/heads/main/redzhub.lua.txt\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770701781984,
     "game": "Blox Fruti",
     "title": "SynTrax Hub",

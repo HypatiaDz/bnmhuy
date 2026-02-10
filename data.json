@@ -1,7 +1,7 @@
 [
   {
     "id": 1770701973803,
-    "game": "Blox Fruti",
+    "game": "Blox Fruit",
     "title": "Redz xanh Hub",
     "desc": "",
     "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/luraobermeyer-jpg/redzhub/refs/heads/main/redzhub.lua.txt\"))()",
@@ -10,7 +10,7 @@
   },
   {
     "id": 1770701781984,
-    "game": "Blox Fruti",
+    "game": "Blox Fruit",
     "title": "SynTrax Hub",
     "desc": "nhặt Fruit",
     "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/DevHub-roblox/script-SYNTRAX-Hub/refs/heads/main/BloxFruit/FindFruit.txt\"))()",

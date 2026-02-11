@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770772517815,
+    "game": "Tap Simulator",
+    "title": "PUSARX Hub",
+    "desc": "",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Estevansit0/KJJK/refs/heads/main/PusarX-loader.lua\"))()",
+    "tag": "VIP",
+    "tagClass": "vip"
+  },
+  {
     "id": 1770772486034,
     "game": "Bee Swarn Simulator",
     "title": "ATLAS Hub",

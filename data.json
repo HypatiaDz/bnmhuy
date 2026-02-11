@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770772146042,
+    "game": "Blox Fruit",
+    "title": "Kaitun lv",
+    "desc": "",
+    "code": "repeat wait() until game:IsLoaded() and game.Players.LocalPlayer\ngetgenv().Configs = {\n    [\"Quest\"] = {\n        [\"Evo Race V1\"] = true;\n        [\"Evo Race V2\"] = true;\n        [\"RGB Haki\"] = true;\n        [\"Pull Lerver\"] = true;\n    };\n    Sword = {\n        \"Dual-Headed Blade\";\n        \"Smoke Admiral\";\n        \"Wardens Sword\";\n        \"Cutlass\";\n        \"Katana\";\n        \"Dual Katana\";\n        \"Triple Katana\";\n        \"Iron Mace\";\n        \"Saber\";\n        \"Pole (1st Form)\";\n        \"Gravity Blade\";\n        \"Longsword\";\n        \"Rengoku\";\n        \"Midnight Blade\";\n        \"Soul Cane\";\n        \"Bisento\";\n        \"Yama\";\n        \"Tushita\";\n        \"Cursed Dual Katana\";\n    };\n    Gun = {\n        \"Soul Guitar\";\n        \"Kabucha\";\n        \"Venom Bow\";\n        \"Musket\";\n        \"Flintlock\";\n        \"Refined Slingshot\"; \n        \"Magma Blaster\";\n        \"Dual Flintlock\";\n        \"Cannon\";\n        \"Bizarre Revolver\";\n        \"Bazooka\";\n    };\n    [\"FPS Booster\"] = false;\n};\nloadstring(game:HttpGet(\"https://raw.githubusercontent.com/SkibidiXHub/Scripts/refs/heads/main/SkiraHubKaitun.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770702054863,
     "game": "Blox Fruit",
     "title": "Nana Hub",

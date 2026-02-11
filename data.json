@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770772486034,
+    "game": "Bee Swarn Simulator",
+    "title": "ATLAS Hub",
+    "desc": "",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Chris12089/atlasbss/main/script.lua\"))()",
+    "tag": "VIP",
+    "tagClass": "vip"
+  },
+  {
     "id": 1770772146042,
     "game": "Blox Fruit",
     "title": "Kaitun lv",

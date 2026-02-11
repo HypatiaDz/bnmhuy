@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770785174966,
+    "game": "Blox Fruit",
+    "title": "Kaitun lv Bacon",
+    "desc": "",
+    "code": "getgenv().SettingFarm = {\n    [\"Team\"] = \"Pirates\", -- Pirates or Marines\n    [\"Boss\"] = \"Tên Boss\", -- Rip_indra , Darkbread, Doughking , Tyrant , Cursed_captian , Cake_prince\n    [\"FPS\"] = \"false\", -- false or true\n}\nloadstring(game:HttpGet(\"https://raw.githubusercontent.com/vinh129150/hack/refs/heads/main/KaitunBoss.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770772517815,
     "game": "Tap Simulator",
     "title": "PUSARX Hub",

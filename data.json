@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770901079597,
+    "game": "Blox Fruit",
+    "title": "Aura hub",
+    "desc": "",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Jadelly/bloxfruit/refs/heads/main/Aura\", true))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770900414471,
     "game": "Blox Fruit",
     "title": "Dum Hub",

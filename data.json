@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770900414471,
+    "game": "Blox Fruit",
+    "title": "Dum Hub",
+    "desc": "",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/DumHubdz/DumHubdzVN/refs/heads/main/DumHubdzVN.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770785174966,
     "game": "Blox Fruit",
     "title": "Kaitun lv Bacon",

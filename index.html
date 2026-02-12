@@ -17,7 +17,7 @@
         body { background:var(--bg); color:var(--text); margin:0; font-family:'Inter',sans-serif; overflow-x:hidden; transition: background 0.3s, color 0.3s; }
         canvas#galaxy { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
 
-        .header { text-align:center; padding:90px 20px 50px; position:relative; }
+        .header { text-align:center; padding:90px 20px 40px; position:relative; }
         .header h1 { font-size:3.8rem; background:linear-gradient(90deg,#00ff9d,var(--accent)); -webkit-background-clip:text; color:transparent; margin: 0; }
         .header p { color: #888; margin-top: 10px; font-size: 1.1rem; }
 
@@ -27,23 +27,50 @@
         .theme-toggle { padding:12px 20px; background:rgba(255,255,255,0.1); border-radius:50px; cursor:pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
         .theme-toggle:hover { background:rgba(255,255,255,0.2); }
 
-        .tabs { display:flex; gap:12px; justify-content:center; padding:20px; flex-wrap:wrap; }
+        .tabs { display:flex; gap:12px; justify-content:center; padding:10px 20px; flex-wrap:wrap; }
         .tab-btn { padding:10px 24px; border:none; background:rgba(255,255,255,0.05); color:var(--text); border-radius:50px; cursor:pointer; font-weight: 600; transition: 0.3s; border: 1px solid transparent; }
         .tab-btn:hover { background:rgba(255,255,255,0.15); }
         .tab-btn.active { background:var(--primary); color:white; box-shadow:var(--glow); border-color: var(--accent); }
 
-        .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:25px; padding:40px 20px; max-width:1400px; margin:auto; }
+        /* --- MỚI: Style cho bộ lọc phụ (Sub-tabs) --- */
+        .sub-tabs { display:flex; gap:10px; justify-content:center; padding:5px 20px 30px; flex-wrap:wrap; }
+        .sub-btn { 
+            padding: 6px 16px; 
+            border: 1px solid rgba(255,255,255,0.1); 
+            background: rgba(0,0,0,0.3); 
+            color: #888; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-size: 0.9rem; 
+            transition: 0.3s; 
+        }
+        .sub-btn:hover { background: rgba(255,255,255,0.1); color: var(--text); }
+        .sub-btn.active { 
+            background: var(--accent); 
+            color: #000; 
+            font-weight: bold; 
+            border-color: transparent;
+            box-shadow: 0 0 15px rgba(0,212,255,0.3);
+        }
+
+        .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:25px; padding:0 20px 40px; max-width:1400px; margin:auto; }
+        
+        /* Cập nhật script-card để các ô cao bằng nhau */
         .script-card {
             background:var(--card); border-radius:20px; padding:25px; transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
             border:1px solid rgba(255,255,255,0.1); box-shadow:0 10px 30px rgba(0,0,0,0.4);
-            display: flex; flex-direction: column;
+            display: flex; flex-direction: column; height: 100%; /* Giúp card cao bằng nhau */
+            box-sizing: border-box;
         }
         .script-card:hover {
             transform:translateY(-10px);
             box-shadow: 0 15px 40px rgba(0,212,255,0.2);
             border-color:var(--accent);
         }
-        .script-card h3 { color:var(--accent); margin:10px 0; font-size: 1.4rem; }
+        .script-card h3 { 
+            color:var(--accent); margin:10px 0; font-size: 1.3rem; 
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; /* Cắt chữ nếu tên quá dài */
+        }
         .card-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #888; margin-bottom: 15px; }
         .tag { padding: 4px 10px; border-radius: 6px; font-weight: bold; font-size: 0.75rem; }
         .tag.hot { background: #ff4757; color: white; }
@@ -90,6 +117,9 @@
     </div>
 
     <div class="tabs" id="tabs"></div>
+    
+    <div class="sub-tabs" id="subTabs"></div>
+
     <div class="grid" id="grid">
         <p style="text-align:center; grid-column:1/-1; color:#888;">Đang kết nối đến server script...</p>
     </div>
@@ -117,39 +147,49 @@
 
     <script>
         // --- 1. CẤU HÌNH KẾT NỐI ADMIN ---
-        // Đây là link đến file data.json trên GitHub của bạn
         const DATA_URL = 'https://raw.githubusercontent.com/HypatiaDz/bnmhuy/main/data.json';
         
-        let scriptsData = []; // Mảng chứa dữ liệu tải về
+        let scriptsData = [];
 
         // --- 2. CÁC BIẾN TOÀN CỤC ---
         const grid = document.getElementById('grid');
         const tabsContainer = document.getElementById('tabs');
+        const subTabsContainer = document.getElementById('subTabs'); // Mới thêm
         const searchInput = document.getElementById('searchInput');
         const modal = document.getElementById('modal');
         const modalTitle = document.getElementById('modal-title');
         const modalCode = document.getElementById('modal-code');
         const toast = document.getElementById('toast');
-        let currentFilter = 'All';
+        
+        let currentFilter = 'All'; // Game hiện tại
+        let currentCategory = 'All'; // Chức năng hiện tại (MỚI)
 
-        // --- 3. KHỞI TẠO (ĐÃ NÂNG CẤP ASYNC) ---
+        // --- CẤU HÌNH DANH MỤC LỌC PHỤ (Bạn có thể sửa từ khóa tại đây) ---
+        const CATEGORIES = [
+            { name: 'Tất cả', keyword: 'All' },
+            { name: 'Kaitun / Auto', keyword: 'kaitun' },
+            { name: 'PVP / Bounty', keyword: 'pvp' },
+            { name: 'Farm Level', keyword: 'farm' },
+            { name: 'Chest / Items', keyword: 'chest' },
+            { name: 'Hub Tổng', keyword: 'hub' }
+        ];
+
+        // --- 3. KHỞI TẠO ---
         async function init() {
             try {
-                // Tải dữ liệu từ GitHub (Thêm timestamp để tránh cache cũ)
                 const response = await fetch(DATA_URL + '?t=' + Date.now());
                 if (!response.ok) throw new Error("Lỗi kết nối GitHub");
                 
                 scriptsData = await response.json();
                 
-                // Sau khi có dữ liệu mới vẽ giao diện
                 renderTabs();
+                renderSubTabs(); // Vẽ bộ lọc phụ
                 renderScripts(scriptsData);
             } catch (error) {
                 console.error(error);
                 grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:50px; color:#ff4757;">
                     <i class="fas fa-exclamation-triangle" style="font-size:3rem; margin-bottom:15px;"></i><br>
-                    Chưa có dữ liệu hoặc lỗi kết nối!<br>
-                    (Hãy đảm bảo bạn đã dùng Admin Panel để đăng ít nhất 1 script)
+                    Chưa có dữ liệu hoặc lỗi kết nối!
                 </div>`;
             }
 
@@ -159,13 +199,22 @@
 
         // --- 4. CÁC HÀM XỬ LÝ GIAO DIỆN ---
         function renderTabs() {
-            // Lọc ra danh sách tên game duy nhất
             const games = ['All', ...new Set(scriptsData.map(item => item.game))];
             
             tabsContainer.innerHTML = games.map(game => `
                 <button class="tab-btn ${game === 'All' ? 'active' : ''}" 
                         onclick="filterByGame('${game}')">
-                    ${game === 'All' ? '<i class="fas fa-globe"></i> Tất cả' : game}
+                    ${game === 'All' ? '<i class="fas fa-globe"></i> Tất cả Game' : game}
+                </button>
+            `).join('');
+        }
+
+        // --- MỚI: HÀM VẼ SUB-TABS ---
+        function renderSubTabs() {
+            subTabsContainer.innerHTML = CATEGORIES.map(cat => `
+                <button class="sub-btn ${cat.keyword === 'All' ? 'active' : ''}" 
+                        onclick="filterByCategory('${cat.keyword}', this)">
+                    ${cat.name}
                 </button>
             `).join('');
         }
@@ -183,12 +232,15 @@
             data.forEach(item => {
                 const card = document.createElement('div');
                 card.className = 'script-card';
+                // Kiểm tra item.tag có tồn tại không, nếu không thì ẩn
+                const tagHTML = item.tag ? `<span class="tag ${item.tagClass || 'hot'}">${item.tag}</span>` : '';
+                
                 card.innerHTML = `
                     <div class="card-meta">
                         <span style="color:var(--text);"><i class="fas fa-gamepad"></i> ${item.game}</span>
-                        ${item.tag ? `<span class="tag ${item.tagClass || 'hot'}">${item.tag}</span>` : ''}
+                        ${tagHTML}
                     </div>
-                    <h3>${item.title}</h3>
+                    <h3 title="${item.title}">${item.title}</h3>
                     <p style="color:#aaa; font-size:0.95rem; margin-bottom:20px; flex-grow:1; line-height:1.5;">${item.desc}</p>
                     <div style="border-top:1px solid rgba(255,255,255,0.05); margin-bottom:15px;"></div>
                     <button class="get-btn" onclick="openModal(${item.id})">
@@ -203,7 +255,10 @@
         window.filterByGame = function(game) {
             currentFilter = game;
             
-            // Update Active Class cho nút Tab
+            // Khi đổi Game, reset bộ lọc phụ về 'Tất cả' để tránh lỗi không thấy bài
+            currentCategory = 'All';
+            renderSubTabs(); 
+
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 if(btn.textContent.includes(game) || (game === 'All' && btn.textContent.includes('Tất cả'))) {
                     btn.classList.add('active');
@@ -215,16 +270,39 @@
             filterData();
         }
 
+        // --- MỚI: LOGIC LỌC THEO CATEGORY ---
+        window.filterByCategory = function(category, btnElement) {
+            currentCategory = category;
+
+            // Đổi màu nút active
+            document.querySelectorAll('.sub-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            filterData();
+        }
+
         searchInput.addEventListener('input', () => filterData());
 
         function filterData() {
             const keyword = searchInput.value.toLowerCase();
+            
             const filtered = scriptsData.filter(item => {
+                // 1. Lọc theo Game
                 const matchGame = currentFilter === 'All' || item.game === currentFilter;
+                
+                // 2. Lọc theo Tìm kiếm (Input)
                 const matchSearch = item.title.toLowerCase().includes(keyword) || 
                                     item.game.toLowerCase().includes(keyword) ||
                                     item.desc.toLowerCase().includes(keyword);
-                return matchGame && matchSearch;
+
+                // 3. Lọc theo Category (Tự động quét nội dung)
+                let matchCategory = true;
+                if (currentCategory !== 'All') {
+                    const content = (item.title + " " + item.desc).toLowerCase();
+                    matchCategory = content.includes(currentCategory);
+                }
+
+                return matchGame && matchSearch && matchCategory;
             });
             renderScripts(filtered);
         }
@@ -299,7 +377,6 @@
             document.getElementById('theme-icon').className = isDark ? 'fas fa-sun' : 'fas fa-moon';
         }
 
-        // --- CHẠY CHƯƠNG TRÌNH ---
         init();
     </script>
 </body>

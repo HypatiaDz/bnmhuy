@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770901098712,
+    "game": "Blox Fruit",
+    "title": "LongHiHi v2",
+    "desc": "",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/longhihilonghihi-hub/Devs-LongHiHiV2/refs/heads/main/MainV2.txt\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770901079597,
     "game": "Blox Fruit",
     "title": "Aura hub",

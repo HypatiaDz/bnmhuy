@@ -1,5 +1,14 @@
 [
   {
+    "id": 1770977770749,
+    "game": "Blox Fruit",
+    "title": "ADZ Hub",
+    "desc": "Auto Farm, Auto Raid, ESP, Up Tộc V4, Sea Event, Full Shop",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/AnDepZaiHub/AnDepZaiHubBeta/refs/heads/main/AnDepZaiHubBeta.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1770901098712,
     "game": "Blox Fruit",
     "title": "LongHiHi v2",

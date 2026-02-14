@@ -1,5 +1,14 @@
 [
   {
+    "id": 1771046328977,
+    "game": "Blox Fruit",
+    "title": "Teddy auto bouty",
+    "desc": " [PVP]",
+    "code": "repeat wait() until game:IsLoaded() and game.Players.LocalPlayer\ngetgenv().Setting = {\n    [\"Team\"] = \"Marines\",\n    [\"Skip Race V4\"] = true,        \n    [\"Melee\"] = {\n        [\"Name Weapon\"] = \"Godhuman\",\n        [\"Enable\"] = true,\n        [\"Z\"] = {[\"Enable\"] = true, [\"HoldTime\"] = 0.1},\n        [\"X\"] = {[\"Enable\"] = true, [\"HoldTime\"] = 0.1},\n        [\"C\"] = {[\"Enable\"] = true, [\"HoldTime\"] = 0.1},\n        [\"Delay\"] = 1.5\n    },       \n    [\"Sword\"] = {\n        [\"Name Weapon\"] = \"Cursed Dual Katana\",\n        [\"Enable\"] = true,\n        [\"Z\"] = {[\"Enable\"] = true, [\"HoldTime\"] = 0.1},\n        [\"X\"] = {[\"Enable\"] = true, [\"HoldTime\"] = 0.1},\n        [\"Delay\"] = 1\n    },        \n    [\"Gun\"] = {\n        [\"Enable\"] = true,\n        [\"Z\"] = {[\"Enable\"] = true, [\"HoldTime\"] = 0.1},\n        [\"X\"] = {[\"Enable\"] = true, [\"HoldTime\"] = 0.1},\n        [\"Delay\"] = 1,\n        [\"GunMode\"] = false\n    },        \n    [\"Fruit\"] = {\n        [\"Enable\"] = false,\n        [\"Z\"] = {[\"Enable\"] = true, [\"HoldTime\"] = 0.1},\n        [\"X\"] = {[\"Enable\"] = true, [\"HoldTime\"] = 0.1},\n        [\"C\"] = {[\"Enable\"] = true, [\"HoldTime\"] = 0.1},\n        [\"V\"] = {[\"Enable\"] = false, [\"HoldTime\"] = 0.1},\n        [\"F\"] = {[\"Enable\"] = true, [\"HoldTime\"] = 0.1},\n        [\"Delay\"] = 1\n    },        \n    [\"Hunt\"] = {\n        [\"Min\"] = 0,\n        [\"Max\"] = 30000000\n    },       \n        [\"Skip\"] = {\n            [\"Fruit\"] = false,\n            [\"FruitList\"] = {\"Buddha\", \"Leopard\", \"T-Rex\"},\n            [\"SafeZone\"] = true,\n            [\"NoHaki\"] = true,\n            [\"NoPvP\"] = true\n        },        \n        [\"SafeHealth\"] = {\n            [\"Health\"] = 4700,\n            [\"RaceV4\"] = false\n        },        \n        [\"Another\"] = {\n            [\"V3\"] = true,\n            [\"V4\"] = true,\n            [\"CustomHealth\"] = true,\n            [\"Health\"] = 4700,\n            [\"WhiteScreen\"] = false,\n            [\"FPSBoots\"] = false,\n        },            \n        [\"Webhook\"] = {\n            [\"Enabled\"] = false,\n            [\"Url\"] = \"\"\n        }\n}\nloadstring(game:HttpGet(\"https://raw.githubusercontent.com/Teddyseetink/Haidepzai/refs/heads/main/TeddyHub-BountyEzz.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1771040496263,
     "game": "Blox Fruit",
     "title": "Teddy kaitun true triple katana",

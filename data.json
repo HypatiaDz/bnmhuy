@@ -1,5 +1,14 @@
 [
   {
+    "id": 1771488491425,
+    "game": "Blox Fruit",
+    "title": "Trẩu V9.1 Hub",
+    "desc": "Auto Farm",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/trungdao2k4/trauroblox/refs/heads/main/trauv9lord.lua\"))()",
+    "tag": "VIP",
+    "tagClass": "vip"
+  },
+  {
     "id": 1771255441724,
     "game": "Blox Fruit",
     "title": "Nullix Hub",

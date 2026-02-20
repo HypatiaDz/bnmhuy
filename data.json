@@ -387,15 +387,6 @@
     "tagClass": "new"
   },
   {
-    "id": 1770699817726,
-    "game": "Blox Fruit",
-    "title": "Trẩu Hub V9",
-    "desc": "",
-    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/trungdao2k4/buffalo/refs/heads/main/traurobloxv9.lua\"))()",
-    "tag": "NEW",
-    "tagClass": "new"
-  },
-  {
     "id": 1770698846188,
     "game": "Blox Fruit",
     "title": "NX-NAZUX Hub",

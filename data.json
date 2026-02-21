@@ -13,14 +13,14 @@
     "game": "Blox Fruit",
     "title": "Nullix Hub",
     "desc": "",
-    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/HypatiaDz/nullixhub/refs/heads/main/monsterxhub.lua\"))()",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/HypatiaDz/nullixhub/refs/heads/main/nullixhub.lua\"))()",
     "tag": "VIP",
     "tagClass": "vip"
   },
   {
     "id": 1771218231231,
     "game": "Blox Fruit",
-    "title": "Redz Hub Real",
+    "title": "Redz Hub Fake",
     "desc": "Auto Farm",
     "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/huy384/redzHub/refs/heads/main/redzHub.lua\"))()",
     "tag": "NEW",

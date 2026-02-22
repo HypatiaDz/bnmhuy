@@ -1,5 +1,14 @@
 [
   {
+    "id": 1771764849648,
+    "game": "Fix Lag ",
+    "title": "TurboLite Fix Lag",
+    "desc": "Fix Lag [KAITUN]",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/TurboLite/Script/main/FixLag.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1771754777900,
     "game": "Blox Fruit",
     "title": "Kaitun Valentine",

@@ -1,5 +1,14 @@
 [
   {
+    "id": 1771754777900,
+    "game": "Blox Fruit",
+    "title": "Kaitun Valentine",
+    "desc": "Kaitun",
+    "code": "repeat wait() until game:IsLoaded() and game.Players.LocalPlayer\n\ngetgenv().Settings = {\n\n    JoinTeam = true,\n\n    Team = \"Marines\"-- Pirates or Marines\n\n}\n\nloadstring(game:HttpGet(\"https://raw.githubusercontent.com/Dev-GravityHub/BloxFruit/refs/heads/main/KaitunValentine.lua\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1771488491425,
     "game": "Blox Fruit",
     "title": "Trẩu V9.1 Hub",

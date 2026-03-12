@@ -1,5 +1,14 @@
 [
   {
+    "id": 1773331421088,
+    "game": "Bloxfruit",
+    "title": "Tày Hub ",
+    "desc": "",
+    "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/VTDROBLOX/Animehub/refs/heads/main/Tayhub.txt\"))()",
+    "tag": "NEW",
+    "tagClass": "new"
+  },
+  {
     "id": 1771764849648,
     "game": "Fix Lag ",
     "title": "TurboLite Fix Lag",
